@@ -4,10 +4,6 @@ const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 
 const userSchema = new mongoose.Schema({
-  userType: {
-    type: String,
-    required: [true, 'Please select a type for account'],
-  },
   name: {
     type: String,
     required: [true, 'Please tell us your name!'],
@@ -18,6 +14,11 @@ const userSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
     validate: [validator.isEmail, 'Please provide a valid email'],
+  },
+  role: {
+    type: String,
+    enum: ['student', 'teacher', 'school', 'admin'],
+    default: 'student'
   },
   password: {
     type: String,
