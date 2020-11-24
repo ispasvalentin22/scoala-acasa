@@ -13,8 +13,6 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
   });
 });
 
-
-
 exports.getUser = catchAsync(async (req, res, next) => {
   res.status(500).json({
     status: 'error',
