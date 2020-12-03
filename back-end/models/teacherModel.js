@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const teacherSchema = new mongoose.Schema({
-  account: {
+  user: {
     type: mongoose.Schema.ObjectId,
     ref: 'User',
   },
@@ -12,6 +12,7 @@ const teacherSchema = new mongoose.Schema({
   school: {
     type: mongoose.Schema.ObjectId,
     ref: 'School',
+    required: [true, 'Please tell us your school'],
   },
   class: {
     type: mongoose.Schema.ObjectId,
@@ -19,6 +20,6 @@ const teacherSchema = new mongoose.Schema({
   },
 });
 
-const Teacher = mongoose.model('Teacher', disciplineSchema);
+const Teacher = mongoose.model('Teacher', teacherSchema);
 
 module.exports = Teacher;

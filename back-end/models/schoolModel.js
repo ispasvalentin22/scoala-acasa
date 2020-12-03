@@ -5,7 +5,10 @@ const schoolSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User',
   },
-  name: String
+  name: {
+    type: String,
+    required: [true, 'Please tell us your school name!'],
+  },
 });
 
 // schoolSchema.pre(/^find/, function(next) {

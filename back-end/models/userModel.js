@@ -2,12 +2,9 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const AppError = require('./../utils/appError');
 
 const userSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: [true, 'Please tell us your name!'],
-  },
   email: {
     type: String,
     required: [true, 'Please provide your email!'],
@@ -40,6 +37,15 @@ const userSchema = new mongoose.Schema({
   passwordResetExpires: Date,
 });
 
+userSchema.pre('save', function(next) {
+  if (this.role == 'admin') {
+    this.role == 'student';
+    return next(new AppError('You can not sign up as an admin', 403));
+  }
+
+  next();
+});
+
 userSchema.pre('save', async function (next) {
   // Only run this function if password was actually modified
   if (!this.isModified('password')) return next();
@@ -47,6 +53,7 @@ userSchema.pre('save', async function (next) {
   this.password = await bcrypt.hash(this.password, 12);
 
   this.passwordConfirm = undefined;
+  next();
 });
 
 userSchema.pre('save', function(next) {
