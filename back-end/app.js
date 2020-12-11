@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
+const schoolRouter = require('./routes/schoolRoutes');
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use(xss());
 
 // 2) ROUTES
 app.use('/api/users', userRouter);
+app.use('/api/schools', schoolRouter);
 
 app.get('/', (req, res) => {
   res.status(200).json({
