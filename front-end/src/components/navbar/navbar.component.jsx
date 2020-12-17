@@ -20,10 +20,10 @@ const Navbar = () => (
       <Link className='option' to='#'>
         Contact
       </Link>
-      <Link className='option' to='#'>
+      <Link className='signin' to='#'>
         Conectare
       </Link>
-      <Link className='option' to='#'>
+      <Link className='signup' to='#'>
         Creează cont
       </Link>
     </div>
