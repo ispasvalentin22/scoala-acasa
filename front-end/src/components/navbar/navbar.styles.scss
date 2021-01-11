@@ -1,44 +1,52 @@
+$color-primary: #2871ff;
+$color-primary-dark: #004adf;
+
 .navbar {
   height: 70px;
-  width: 100%;
+  width: 80vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0 auto;
+
+
   margin-bottom: 25px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 
   .logo-container {
     height: 100%;
-    width: 70px;
+    width: 30%;
     padding: 15px 40px;
+    margin: 0 auto;
   }
 
   .options {
-    width: 50%;
-    height: 100%;
+    // width: 50%;
+    // height: 100%;
     display: flex;
+    justify-items: center;
     align-items: center;
-    justify-content: center;
     font-weight: 550;
 
     .option {
       padding: 10px 15px;
       cursor: pointer;
+      transition: all .1s;
 
       &:hover {
-        border-bottom: solid #2871ff;
+        border-bottom: solid $color-primary;
       }
     }
 
     .signin {
       padding: 10px 15px;
       cursor: pointer;
-      border: 1px solid #2871ff;
+      border: 1px solid $color-primary;
       border-radius: 50px;
-      color: #2871ff;
+      color: $color-primary;
       margin: 0 15px;
 
       &:hover {
-        background-color: #2871ff;
+        background-color: $color-primary;
         color: white;
       }
     }
@@ -46,14 +54,14 @@
     .signup {
       padding: 10px 15px;
       cursor: pointer;
-      border: 1px solid #2871ff;
+      border: 1px solid $color-primary;
       border-radius: 50px;
       margin: 0 15px;
       color: white;
-      background-color: #2871ff;
+      background-color: $color-primary;
 
       &:hover {
-        background-color: darken($color: #004adf, $amount: 0);
+        background-color: darken($color: $color-primary-dark, $amount: 0);
       }
     }
 
