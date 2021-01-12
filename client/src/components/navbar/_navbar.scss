@@ -1,36 +1,31 @@
-$color-primary: #2871ff;
-$color-primary-dark: #004adf;
-
 .navbar {
   height: 70px;
   width: 80vw;
   display: flex;
   justify-content: center;
+  align-content: center;
   margin: 0 auto;
 
-
   margin-bottom: 25px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
   .logo-container {
     height: 100%;
-    width: 30%;
-    padding: 15px 40px;
+    width: 100%;
+    padding: 0.7rem 2rem;
     margin: 0 auto;
   }
 
   .options {
-    // width: 50%;
-    // height: 100%;
     display: flex;
-    justify-items: center;
     align-items: center;
     font-weight: 550;
+    white-space: nowrap;
 
     .option {
       padding: 10px 15px;
       cursor: pointer;
-      transition: all .1s;
+      transition: all 0.1s;
 
       &:hover {
         border-bottom: solid $color-primary;
@@ -64,6 +59,5 @@ $color-primary-dark: #004adf;
         background-color: darken($color: $color-primary-dark, $amount: 0);
       }
     }
-
   }
 }

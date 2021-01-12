@@ -1,3 +1,9 @@
+@import './assets/styles/variables';
+
+// Components styling
+@import './pages/homepage/homepage';
+@import './components/navbar/navbar';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,4 +11,3 @@
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
 }
-

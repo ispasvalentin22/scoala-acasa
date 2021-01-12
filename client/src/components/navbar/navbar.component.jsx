@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as Logo } from './../../assets/scoala-acasa.svg'
-
-import './navbar.styles.scss';
+import { ReactComponent as Logo } from './../../assets/scoala-acasa.svg';
 
 const Navbar = () => (
   <div className='navbar'>
