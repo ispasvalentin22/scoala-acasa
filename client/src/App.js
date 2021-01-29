@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/homepage/homepage.component';
 import Navbar from './components/navbar/navbar.component';
-import SignUp from './components/sign up/sign-up.component';
+import SignUp from './pages/signup/sign-up.component';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';

@@ -21,7 +21,7 @@ const Navbar = () => (
       <Link className='signin' to='#'>
         Conectare
       </Link>
-      <Link className='signup' to='#'>
+      <Link className='signup' to='/signup'>
         Creează cont
       </Link>
     </div>

@@ -3,6 +3,7 @@
 // Components styling
 @import './pages/homepage/homepage';
 @import './components/navbar/navbar';
+@import './pages/signup/sign-up';
 
 * {
   box-sizing: border-box;
@@ -10,4 +11,8 @@
   padding: 0;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
 }
