@@ -1,15 +1,25 @@
 import axios from 'axios';
-import { UserActionTypes } from './user.types';
+import { USER_REGISTER, USER_LOGIN, USER_LOGOUT } from './user.types';
+import { ADD_ERRORS, CLEAR_ERRORS } from '../error/error.types';
 
 export const userRegister = ({ email, password }) => async (dispatch) => {
-  await axios.post('/api/users/signup', {
-    email,
-    password,
-  });
-  dispatch({
-    type: UserActionTypes.USER_REGISTER,
-  })
-}
+  try {
+    await axios.post('/api/users/signup', {
+      email,
+      password,
+    });
+    dispatch({
+      type: USER_REGISTER,
+    });
+  } catch (err) {
+    dispatch({
+      type: ADD_ERRORS,
+      payload: {
+        errors: err,
+      },
+    });
+  }
+};
 
 export const userLogin = ({ email, password }) => async (dispatch) => {
   try {
@@ -19,14 +29,24 @@ export const userLogin = ({ email, password }) => async (dispatch) => {
     });
     if (res) {
       dispatch({
-        type: UserActionTypes.USER_LOGIN,
+        type: CLEAR_ERRORS,
         payload: {
-          token: res.token,
+          errors: null,
         },
       });
-      console.log(res.token);
+      dispatch({
+        type: USER_LOGIN,
+        payload: {
+          token: res.data.token,
+        },
+      });
     }
   } catch (err) {
-    console.log(err);
+    dispatch({
+      type: ADD_ERRORS,
+      payload: {
+        errors: err.message,
+      },
+    });
   }
-}
+};

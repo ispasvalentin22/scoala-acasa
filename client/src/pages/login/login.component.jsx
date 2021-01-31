@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../../redux/user/user.actions';
 
 const Login = () => {
-  const user = useSelector((state) => state.userReducer);
+  const user = useSelector((state) => state.user);
+  const errors = useSelector((state) => state.errors);
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');

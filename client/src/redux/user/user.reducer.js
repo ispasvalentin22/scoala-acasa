@@ -1,25 +1,26 @@
-import { UserActionTypes } from './user.types';
+import { USER_REGISTER, USER_LOGIN, USER_LOGOUT } from './user.types';
 
 const INITIAL_STATE = {
   email: '',
   role: '',
   token: '',
-} 
+};
 
 const userReducer = (state = INITIAL_STATE, action) => {
+  console.log(state);
   switch (action.type) {
-    case UserActionTypes.USER_REGISTER:
+    case USER_REGISTER:
       return {
         ...state,
       };
 
-    case UserActionTypes.USER_LOGIN:
+    case USER_LOGIN:
       return {
         ...state,
         token: action.payload.token,
       };
 
-    case UserActionTypes.USER_LOGOUT:
+    case USER_LOGOUT:
       return {
         ...state,
       };
