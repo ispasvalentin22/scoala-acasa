@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomePage from './pages/homepage/homepage.component';
 import Navbar from './components/navbar/navbar.component';
 import SignUp from './pages/signup/sign-up.component';
+import Login from './pages/login/login.component';
 
 import { Provider } from 'react-redux';
 import store from './redux/store';
@@ -19,6 +20,7 @@ const App = () => {
             <Switch>
               <Route path="/" exact component={() => <HomePage />} />
               <Route path="/signup" component={() => <SignUp />} />
+              <Route path="/login" component={() => <Login />} />
             </Switch>
           </div>
       </Router>

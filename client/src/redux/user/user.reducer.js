@@ -3,6 +3,7 @@ import { UserActionTypes } from './user.types';
 const INITIAL_STATE = {
   email: '',
   role: '',
+  token: '',
 } 
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -15,6 +16,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case UserActionTypes.USER_LOGIN:
       return {
         ...state,
+        token: action.payload.token,
       };
 
     case UserActionTypes.USER_LOGOUT:

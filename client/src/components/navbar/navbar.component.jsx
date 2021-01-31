@@ -18,7 +18,7 @@ const Navbar = () => (
       <Link className='option' to='#'>
         Contact
       </Link>
-      <Link className='signin' to='#'>
+      <Link className='signin' to='/login'>
         Conectare
       </Link>
       <Link className='signup' to='/signup'>
