@@ -15,7 +15,7 @@ export const userRegister = ({ email, password }) => async (dispatch) => {
     dispatch({
       type: ADD_ERRORS,
       payload: {
-        errors: err,
+        errors: err.response.data.message,
       },
     });
   }
@@ -37,6 +37,7 @@ export const userLogin = ({ email, password }) => async (dispatch) => {
       dispatch({
         type: USER_LOGIN,
         payload: {
+          email: res.data.data.user.email,
           token: res.data.token,
         },
       });
@@ -45,8 +46,9 @@ export const userLogin = ({ email, password }) => async (dispatch) => {
     dispatch({
       type: ADD_ERRORS,
       payload: {
-        errors: err.message,
+        errors: err.response.data.message,
       },
     });
   }
 };
+

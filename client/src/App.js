@@ -7,7 +7,7 @@ import SignUp from './pages/signup/sign-up.component';
 import Login from './pages/login/login.component';
 
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import { persistor, store } from './redux/store';
 
 import './App.scss';
 

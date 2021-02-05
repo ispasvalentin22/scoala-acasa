@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
-  console.log(state);
   switch (action.type) {
     case USER_REGISTER:
       return {
@@ -17,12 +16,16 @@ const userReducer = (state = INITIAL_STATE, action) => {
     case USER_LOGIN:
       return {
         ...state,
+        email: action.payload.email,
         token: action.payload.token,
       };
 
     case USER_LOGOUT:
       return {
         ...state,
+        email: action.payload.email,
+        role: action.payload.role,
+        token: action.payload.token,
       };
 
     default:

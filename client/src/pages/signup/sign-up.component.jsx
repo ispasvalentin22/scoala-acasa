@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userRegister } from '../../redux/user/user.actions';
 
 const SignUp = () => {
   const user = useSelector((state) => state.user);
   const errors = useSelector((state) => state.errors);
-  const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const submitRegister = async (e) => {
     e.preventDefault();
