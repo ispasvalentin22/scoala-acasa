@@ -4,13 +4,21 @@ import { ADD_ERRORS, CLEAR_ERRORS } from '../error/error.types';
 
 export const userRegister = ({ email, password }) => async (dispatch) => {
   try {
-    await axios.post('/api/users/signup', {
+    const res = await axios.post('/api/users/signup', {
       email,
       password,
     });
-    dispatch({
-      type: USER_REGISTER,
-    });
+    if (res) {
+      dispatch({
+        type: CLEAR_ERRORS,
+        payload: {
+          errors: null,
+        },
+      });
+      dispatch({
+        type: USER_REGISTER,
+      });
+    }
   } catch (err) {
     dispatch({
       type: ADD_ERRORS,

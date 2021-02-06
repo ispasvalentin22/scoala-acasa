@@ -37,6 +37,7 @@ const Login = () => {
           Conectare
         </button>
       </form>
+      { errors.errors && <h3 className="error"> { errors.errors } </h3> }
     </div>
   );
 };

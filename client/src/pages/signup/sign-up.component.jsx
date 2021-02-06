@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { CLEAR_ERRORS } from '../../redux/error/error.types';
 import { userRegister } from '../../redux/user/user.actions';
 
 const SignUp = () => {
@@ -15,6 +16,19 @@ const SignUp = () => {
 
     dispatch(userRegister({ email, password }));
   }
+
+  useEffect(() => {
+
+    return () => {
+      errors.errors = null;
+      // dispatch({
+      //   type: CLEAR_ERRORS,
+      //   payload: {
+      //     errors: null,
+      //   },
+      // });
+    }
+  }, [errors, dispatch]);
 
   return (
     <div className="signup__container">
@@ -33,6 +47,7 @@ const SignUp = () => {
           Înregistrare
         </button>
       </form>
+      { errors.errors && <h3 className="error"> { errors.errors } </h3> }
     </div>
   );
 };
