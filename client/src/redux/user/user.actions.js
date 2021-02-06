@@ -52,3 +52,13 @@ export const userLogin = ({ email, password }) => async (dispatch) => {
   }
 };
 
+export const userLogout = () => async (dispatch) => {
+  dispatch({
+    type: USER_LOGOUT,
+    payload: {
+      token: null,
+      email: null,
+      role: null,
+    },
+  });
+};

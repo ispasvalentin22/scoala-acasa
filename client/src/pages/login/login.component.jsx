@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../../redux/user/user.actions';
+import { isLoggedIn } from '../../utils/isLoggedIn';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -10,11 +11,13 @@ const Login = () => {
   const user = useSelector(state => state.user);
   const errors = useSelector(state => state.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const submitLogin = async (e) => {
     e.preventDefault();
 
     dispatch(userLogin({ email, password }));
+    if (isLoggedIn()) { history.push("/"); }
   }
 
   return (
