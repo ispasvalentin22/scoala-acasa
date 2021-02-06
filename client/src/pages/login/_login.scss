@@ -60,6 +60,11 @@
       background-color: darken($color: $color-primary-dark, $amount: 0);
     }
   }
+
+  &__redirect {
+    font-size: 1.3rem;
+    margin: 2rem auto;
+  }
 }
 
 .error {

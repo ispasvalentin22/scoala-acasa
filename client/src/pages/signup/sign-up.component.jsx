@@ -46,6 +46,7 @@ const SignUp = () => {
         <button type="submit" className="signup__submit">
           Înregistrare
         </button>
+        <p className="signup__already">Ai deja un cont creat? <a href="/login">Intră în contul tău.</a></p>
       </form>
       { errors.errors && <h3 className="error"> { errors.errors } </h3> }
     </div>

@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogin } from '../../redux/user/user.actions';
 import { isLoggedIn } from '../../utils/isLoggedIn';
+import { CLEAR_ERRORS } from '../../redux/error/error.types';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,6 +21,19 @@ const Login = () => {
     if (isLoggedIn()) { history.push("/"); }
   }
 
+  useEffect(() => {
+
+    return () => {
+      errors.errors = null;
+      dispatch({
+        type: CLEAR_ERRORS,
+        payload: {
+          errors: null,
+        },
+      });
+    };
+  });
+
   return (
     <div className="login__container">
       
@@ -36,6 +50,7 @@ const Login = () => {
         <button type="submit" className="login__submit">
           Conectare
         </button>
+        <p className="login__redirect">Nu ai un cont? <a href="/signup">Înregistrează-te.</a></p>
       </form>
       { errors.errors && <h3 className="error"> { errors.errors } </h3> }
     </div>
