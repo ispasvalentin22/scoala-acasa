@@ -21,18 +21,18 @@ const Login = () => {
     if (isLoggedIn()) { history.push("/"); }
   }
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    return () => {
-      errors.errors = null;
-      dispatch({
-        type: CLEAR_ERRORS,
-        payload: {
-          errors: null,
-        },
-      });
-    };
-  });
+  //   return () => {
+  //     errors.errors = null;
+  //     dispatch({
+  //       type: CLEAR_ERRORS,
+  //       payload: {
+  //         errors: null,
+  //       },
+  //     });
+  //   };
+  // });
 
   return (
     <div className="login__container">

@@ -42,3 +42,36 @@
     margin-top: 1.5rem;
   }
 }
+
+.benefits {
+  &__img {
+    display: flex;
+    margin: 10rem auto;
+    margin-bottom: 0;
+  }
+
+  &__title {
+    display: flex;
+    margin-bottom: 10rem;
+    font-size: 4rem;
+    font-weight: 500;
+    justify-content: center;
+    background-image: linear-gradient(rgba(#2871ff, 1), rgba(#000000, 1));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__checkbox {
+    margin-right: 3rem;
+  }
+
+  &__list {
+    display: flex;
+    font-size: 2rem;
+    margin: 0 20rem;
+
+    &--1, &--2, &--3 {
+      display: flex;
+    }
+  }
+}
