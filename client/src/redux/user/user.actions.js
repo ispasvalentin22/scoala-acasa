@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { USER_REGISTER, USER_LOGIN, USER_LOGOUT } from './user.types';
+import { USER_REGISTER, USER_LOGIN, USER_LOGOUT, USER_GET_INFO } from './user.types';
 import { ADD_ERRORS, CLEAR_ERRORS } from '../error/error.types';
 
 export const userRegister = ({ email, password }) => async (dispatch) => {
@@ -69,4 +69,27 @@ export const userLogout = () => async (dispatch) => {
       role: null,
     },
   });
+};
+
+export const getUserInfo = () => async (dispatch) => {
+  try {
+    const response = await axios.get('/api/users/currentuser');
+    if (response) {
+      console.log(response);
+      dispatch({
+        type: USER_GET_INFO,
+        payload: {
+          name: response.data.user.name,
+          email: response.data.user.email,
+        }
+      });
+    }
+  } catch (err) {
+    dispatch({
+      type: ADD_ERRORS,
+      payload: {
+        errors: err.response.data.message,
+      },
+    });
+  }
 };
