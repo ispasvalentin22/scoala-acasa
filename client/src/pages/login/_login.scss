@@ -59,6 +59,10 @@
     &:hover {
       background-color: darken($color: $color-primary-dark, $amount: 0);
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__redirect {

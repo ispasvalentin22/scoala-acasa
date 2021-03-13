@@ -9,7 +9,7 @@
   }
 
   &__title {
-    font-size: 3.5rem;   
+    font-size: 3.5rem;
     color: $color-primary;
     margin-bottom: 5rem;
   }
@@ -39,14 +39,13 @@
     font-size: 1.5rem;
     margin-left: 1rem;
     margin-bottom: 1rem;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   &__input:placeholder-shown + &__label {
     opacity: 0;
     visibility: hidden;
   }
-
 
   &__submit {
     padding: 1rem 1.5rem;
@@ -56,9 +55,13 @@
     color: white;
     background-color: $color-primary;
     margin-top: 2rem;
-  
+
     &:hover {
       background-color: darken($color: $color-primary-dark, $amount: 0);
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 

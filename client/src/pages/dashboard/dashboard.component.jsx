@@ -44,6 +44,13 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
+
+        <section className="announcements">
+          <div className="announcements-header">
+            <h2 className="announcements-header-title">Anunțuri</h2>
+            <button className="announcements-add"><i class="fas fa-plus"></i>Adaugă anunț</button>
+          </div>
+        </section>
       </main>
     </div>
   )
