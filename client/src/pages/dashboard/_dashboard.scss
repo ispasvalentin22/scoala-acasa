@@ -1,17 +1,36 @@
 .sidemenu__logo {
   padding: 3rem;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
   font-size: 2rem;
+  width: 100%;
 }
 
 .currentuser {
   display: flex;
   align-items: center;
   width: fit-content;
-  padding: 1.5rem;
-  border-top: 1px solid rgb(211, 211, 211);
-  border-bottom: 1px solid rgb(211, 211, 211);
+  padding: 2rem;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 0.1rem;
+    width: 22.2rem;
+    background-color: rgb(211, 211, 211);
+  }
   
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    height: 0.1rem;
+    width: 22.2rem;
+    background-color: rgb(211, 211, 211);
+  }
 }
 
 .currentuser__details h3 {
@@ -26,7 +45,7 @@
 }
 
 .class-activity {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .class-activity-title {
@@ -34,25 +53,58 @@
 }
 
 .sidemenu {
+  width: 25rem;
 
-  &__homepage, &__catalogue {
+  &__homepage, &__catalogue, &__schedule {
     display: flex;
     align-items: center;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
 
     &--h3 {
       margin-left: 1.5rem;
       color: $color-black-light;
+      font-size: 1.4rem;
     }
 
     &--title {
       margin-left: 1.9rem;
       color: $color-black-light;
+      font-size: 1.4rem;
     }
   }
 }
 
-.fa-clipboard, .fa-border-all {
+.fa-clipboard, .fa-border-all, .fa-calendar-alt {
   font-size: 2.5rem;
+}
+
+.dashboard-wrapper {
+  display: flex;
+}
+
+.dashboard__main {
+  background-color: rgb(230, 230, 230);
+  width: 100%;
+}
+
+.miniheader__title {
+  margin: 3rem;
+  margin-top: 2rem;
+  font-size: 2.5rem;
+}
+
+.miniheader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.currentuser-header {
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+}
+
+.fa-caret-down {
+  font-size: 2rem;
+  margin-left: 1.5rem;
 }
