@@ -18,7 +18,10 @@ const Navbar = () => {
   const renderLinks = () => {
     if (isLoggedIn()) {
       return (
-        <Link className='logout' to='/' onClick={handleLogout}>Log out</Link>
+        <div>
+          <Link className='option' to='/dashboard'>Panou de control</Link>
+          <Link className='logout' to='/' onClick={handleLogout}>Deconectare</Link>
+        </div>
       );
     } else {
       return (

@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
 
     dispatch(userLogin({ email, password }));
-    if (isLoggedIn()) { history.push("/"); }
+    if (isLoggedIn()) { history.push("/dashboard"); }
   }
 
   // useEffect(() => {

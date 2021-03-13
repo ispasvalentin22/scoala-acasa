@@ -1,0 +1,26 @@
+.sidemenu__app {
+  padding: 3rem;
+  padding-left: 1.5rem;
+  font-size: 2rem;
+}
+
+.currentuser {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 1.5rem;
+  border-top: 1px solid rgb(211, 211, 211);
+  border-bottom: 1px solid rgb(211, 211, 211);
+  
+}
+
+.currentuser__details h3 {
+  color: rgb(133, 133, 133);
+  margin-top: 0.5rem;
+}
+
+.fa-user-circle {
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
