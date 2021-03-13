@@ -35,9 +35,13 @@ const Dashboard = () => {
         <div className="miniheader">
           <h1 className="miniheader__title">Pagina principală</h1>
           <div className="currentuser-header">
-            <i class="fas fa-user-circle"></i>
-            <h2>$Current user$</h2>
-            <i class="fas fa-caret-down"></i>
+            <i class="far fa-comments"></i>
+            <i class="far fa-bell"></i>
+            <div className="currentuser-header-info">
+              <i class="fas fa-user-circle"></i>
+              <h2>$Current user$</h2>
+              <i class="fas fa-caret-down"></i>
+            </div>
           </div>
         </div>
       </main>
