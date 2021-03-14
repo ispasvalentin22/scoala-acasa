@@ -1,8 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInfo } from '../../redux/user/user.actions';
+import { isLoggedIn } from "../../utils/isLoggedIn";
 
 const Dashboard = () => {
+  useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const request = async () => {
+      await dispatch(getUserInfo());
+    };
+    if (isLoggedIn()) {
+      request();
+    }
+  }, [dispatch]);
+
   return (
     <div className="dashboard-wrapper">
       <section className="sidemenu">

@@ -1,6 +1,7 @@
 import { USER_REGISTER, USER_LOGIN, USER_LOGOUT, USER_GET_INFO } from './user.types';
 
 const INITIAL_STATE = {
+  name: '',
   email: '',
   role: '',
   token: '',
