@@ -8,9 +8,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const request = async () => {
-      await dispatch(getUserInfo());
-    };
+    const request = async () => await dispatch(getUserInfo());
     if (isLoggedIn()) {
       request();
     }

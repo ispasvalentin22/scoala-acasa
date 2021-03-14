@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { USER_REGISTER, USER_LOGIN, USER_LOGOUT, USER_GET_INFO } from './user.types';
 import { ADD_ERRORS, CLEAR_ERRORS } from '../error/error.types';
+import axiosInstance from '../../api/axiosInstance';
 
 export const userRegister = ({ email, password }) => async (dispatch) => {
   try {
-    const res = await axios.post('/api/users/signup', {
+    const res = await axiosInstance.post('/api/users/signup', {
       email,
       password,
     });
@@ -31,7 +32,7 @@ export const userRegister = ({ email, password }) => async (dispatch) => {
 
 export const userLogin = ({ email, password }) => async (dispatch) => {
   try {
-    const res = await axios.post('/api/users/login' , {
+    const res = await axiosInstance.post('/api/users/login' , {
       email,
       password,
     });
@@ -72,8 +73,8 @@ export const userLogout = () => async (dispatch) => {
 };
 
 export const getUserInfo = () => async (dispatch) => {
-  try {
-    const response = await axios.get('/api/users/currentuser');
+  // try {
+    const response = await axiosInstance.get('/api/users/currentuser');
     console.log(response);
     if (response) {
       dispatch({
@@ -84,12 +85,12 @@ export const getUserInfo = () => async (dispatch) => {
         }
       });
     }
-  } catch (err) {
-    dispatch({
-      type: ADD_ERRORS,
-      payload: {
-        errors: err.response.data.message,
-      },
-    });
-  }
+  // } catch (err) {
+  //   dispatch({
+  //     type: ADD_ERRORS,
+  //     payload: {
+  //       errors: err.response.data.message,
+  //     },
+  //   });
+  // }
 };
