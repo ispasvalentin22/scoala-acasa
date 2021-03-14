@@ -135,6 +135,7 @@
   align-items: center;
 
   &:hover {
+    cursor: pointer;
     h2 {
       color: $color-primary;
     }

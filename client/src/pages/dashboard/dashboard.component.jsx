@@ -7,12 +7,21 @@ const Dashboard = () => {
   useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const request = async () => await dispatch(getUserInfo());
-    if (isLoggedIn()) {
-      request();
-    }
-  }, [dispatch]);
+  if (isLoggedIn()) {
+    console.log(isLoggedIn());
+    const request = () => dispatch(getUserInfo());
+    console.log(request);
+    request();
+  }
+
+  // useEffect(() => {
+  //   if (isLoggedIn()) {
+  //     console.log(isLoggedIn());
+  //     const request = () => dispatch(getUserInfo());
+  //     console.log(request);
+  //     request();
+  //   }
+  // }, [dispatch]);
 
   return (
     <div className="dashboard-wrapper">
