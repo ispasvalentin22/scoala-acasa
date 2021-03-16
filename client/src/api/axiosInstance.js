@@ -6,10 +6,10 @@ const setAuthHeaderValue = () => {
 };
 
 const axiosInstance = axios.create(
-  { baseURL: 'localhost:4000' },
+  { baseURL: 'http://localhost:4000' },
   {
-    Headers: {
-      'Content-type': 'Application/json',
+    headers: {
+      'Content-Type': 'application/json',
       Authorization: setAuthHeaderValue(),
     },
   }

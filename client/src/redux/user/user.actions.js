@@ -73,7 +73,7 @@ export const userLogout = () => async (dispatch) => {
 };
 
 export const getUserInfo = () => async (dispatch) => {
-  // try {
+  try {
     const response = await axiosInstance.get('/api/users/currentuser');
     console.log(response);
     if (response) {
@@ -85,12 +85,12 @@ export const getUserInfo = () => async (dispatch) => {
         }
       });
     }
-  // } catch (err) {
-  //   dispatch({
-  //     type: ADD_ERRORS,
-  //     payload: {
-  //       errors: err.response.data.message,
-  //     },
-  //   });
-  // }
+  } catch (err) {
+    dispatch({
+      type: ADD_ERRORS,
+      payload: {
+        // errors: err.response.data.message,
+      },
+    });
+  }
 };
