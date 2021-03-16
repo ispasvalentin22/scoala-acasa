@@ -89,7 +89,7 @@ export const getUserInfo = () => async (dispatch) => {
     dispatch({
       type: ADD_ERRORS,
       payload: {
-        errors: err.response.data.message,
+        // errors: err.response.data.message,
       },
     });
   }
