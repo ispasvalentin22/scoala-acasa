@@ -1,7 +1,6 @@
 import React from 'react';
 
 const DashboardMenu = () => {
-
   return (
     <section className="sidemenu">
         <h2 className="sidemenu__logo">Scoala acasa</h2>
