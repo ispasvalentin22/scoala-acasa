@@ -11,21 +11,12 @@ const Dashboard = () => {
   useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  if (isLoggedIn()) {
-    console.log(isLoggedIn());
-    const request = () => dispatch(getUserInfo());
-    console.log(request);
-    request();
-  }
-
-  // useEffect(() => {
-  //   if (isLoggedIn()) {
-  //     console.log(isLoggedIn());
-  //     const request = () => dispatch(getUserInfo());
-  //     console.log(request);
-  //     request();
-  //   }
-  // }, [dispatch]);
+  useEffect(() => {
+    if (isLoggedIn()) {
+      const request = () => dispatch(getUserInfo());
+      request();
+    }
+  }, [dispatch]);
 
   return (
     <div className="dashboard-container">
