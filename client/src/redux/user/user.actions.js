@@ -79,8 +79,9 @@ export const getUserInfo = () => async (dispatch) => {
       dispatch({
         type: USER_GET_INFO,
         payload: {
-          name: response.data.user.name,
-          email: response.data.user.email,
+          name: response.data.name,
+          email: response.data.email,
+          role: response.data.role,
         }
       });
     }
