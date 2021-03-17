@@ -6,6 +6,8 @@
 @import './pages/signup/sign-up';
 @import './pages/login/login';
 @import './pages/dashboard/dashboard';
+@import './components/dashboard-menu/dashboard-menu';
+@import './components/dashboard-announcements/dashboard-announcements';
 
 * {
   box-sizing: border-box;
