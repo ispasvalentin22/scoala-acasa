@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DashboardAnnouncements = () => {
+const DashboardAnnouncements = ({ currentUser }) => {
   return (
     <div className="dashboard-wrapper">
       <div className="dashboard__main">
@@ -11,7 +11,7 @@ const DashboardAnnouncements = () => {
             <i class="far fa-bell"></i>
             <div className="currentuser-header-info">
               <i class="fas fa-user-circle"></i>
-              <h2>$Current user$</h2>
+              <h2>{ currentUser.name }</h2>
               <i class="fas fa-caret-down"></i>
             </div>
           </div>

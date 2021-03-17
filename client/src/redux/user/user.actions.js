@@ -75,13 +75,13 @@ export const userLogout = () => async (dispatch) => {
 export const getUserInfo = () => async (dispatch) => {
   try {
     const response = await axiosInstance.get('/api/users/currentuser');
-    console.log(response);
     if (response) {
       dispatch({
         type: USER_GET_INFO,
         payload: {
-          name: response.data.user.name,
-          email: response.data.user.email,
+          name: response.data.name,
+          email: response.data.email,
+          role: response.data.role,
         }
       });
     }

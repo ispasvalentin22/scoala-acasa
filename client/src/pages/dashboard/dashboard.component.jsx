@@ -8,30 +8,21 @@ import DashboardMenu from '../../components/dashboard-menu/dashboard-menu.compon
 import DashboardAnnouncements from '../../components/dashboard-announcements/dashboard-announcements.component';
 
 const Dashboard = () => {
-  useSelector((state) => state.user);
+  let currentUser = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  if (isLoggedIn()) {
-    console.log(isLoggedIn());
-    const request = () => dispatch(getUserInfo());
-    console.log(request);
-    request();
-  }
-
-  // useEffect(() => {
-  //   if (isLoggedIn()) {
-  //     console.log(isLoggedIn());
-  //     const request = () => dispatch(getUserInfo());
-  //     console.log(request);
-  //     request();
-  //   }
-  // }, [dispatch]);
+  useEffect(() => {
+    if (isLoggedIn()) {
+      const request = () => dispatch(getUserInfo());
+      request();
+    }
+  }, [dispatch]);
 
   return (
     <div className="dashboard-container">
-      <DashboardMenu />
+      <DashboardMenu currentUser={currentUser} />
         <Switch>
-          <Route path="/dashboard" exact component={() => <DashboardAnnouncements /> } />
+          <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } />
         </Switch>
     </div>
   );

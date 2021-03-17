@@ -1,14 +1,14 @@
 import React from 'react';
 
-const DashboardMenu = () => {
+const DashboardMenu = ({ currentUser }) => {
   return (
     <section className="sidemenu">
-        <h2 className="sidemenu__logo">Scoala acasa</h2>
+        <a href="/"><h2 className="sidemenu__logo">Scoala acasa</h2></a>
         <div className="currentuser">
           <i class="fas fa-user-circle"></i>
           <div className="currentuser__details">
-            <h2>$Current user$</h2>
-            <h3>Cadru didactic</h3>
+            <h2>{ currentUser.name }</h2>
+            <h3>{ currentUser.role }</h3>
           </div>
         </div>
         <div className="class-activity">

@@ -15,4 +15,15 @@ const axiosInstance = axios.create(
   }
 );
 
+axiosInstance.interceptors.request.use(
+  (request) => {
+    if (store.getState().user.token) {
+      request.headers.Authorization = setAuthHeaderValue();
+    }
+
+    return request;
+  },
+  (error) => Promise.reject(error)
+);
+
 export default axiosInstance;

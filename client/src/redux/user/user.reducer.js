@@ -33,6 +33,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         name: action.payload.name,
+        role: action.payload.role,
         email: action.payload.email,
       };
 
