@@ -13,6 +13,10 @@ const DashboardAnnouncements = ({ currentUser }) => {
               <i class="fas fa-user-circle"></i>
               <h2>{ currentUser.name }</h2>
               <i class="fas fa-caret-down"></i>
+              <div className="dropdown-content">
+                <a href="#">Setări cont</a>
+                <a href="#">Deconectare</a>
+              </div>
             </div>
           </div>
         </div>
