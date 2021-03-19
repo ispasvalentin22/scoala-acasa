@@ -1,4 +1,9 @@
-import { USER_REGISTER, USER_LOGIN, USER_LOGOUT, USER_GET_INFO } from './user.types';
+import {
+  USER_REGISTER,
+  USER_LOGIN,
+  USER_LOGOUT,
+  USER_GET_INFO,
+} from './user.types';
 
 const INITIAL_STATE = {
   name: '',
@@ -27,6 +32,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         email: action.payload.email,
         role: action.payload.role,
         token: action.payload.token,
+        name: action.payload.name,
       };
 
     case USER_GET_INFO:
