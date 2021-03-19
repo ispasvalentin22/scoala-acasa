@@ -18,14 +18,20 @@ const Dashboard = () => {
     }
   }, [dispatch]);
 
-  return (
-    <div className="dashboard-container">
-      <DashboardMenu currentUser={currentUser} />
-        <Switch>
-          <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } />
-        </Switch>
-    </div>
-  );
+    if (isLoggedIn()) {
+      return (
+        <div className="dashboard-container">
+          <DashboardMenu currentUser={currentUser} />
+          <Switch>
+            <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } />
+          </Switch>
+        </div>
+      );
+    } else {
+      return (
+        <h1>Trebuie să fii conectat pentru a accesa această pagină!</h1>
+      )
+    }
 }
 
 export default Dashboard;

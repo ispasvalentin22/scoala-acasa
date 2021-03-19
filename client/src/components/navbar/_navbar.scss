@@ -2,10 +2,9 @@
   height: 7rem;
   width: 80vw;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
   margin: 0 auto;
-
   margin-bottom: 2.5rem;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
@@ -23,12 +22,15 @@
     font-weight: 550;
     white-space: nowrap;
 
-    .option {
+    .option:link, .option:visited {
+      color: black;
       padding: 1rem 1.5rem;
       cursor: pointer;
-      transition: all 0.1s;
+      border-bottom: solid transparent;
+      text-decoration: none;
 
       &:hover {
+        color: $color-primary;
         border-bottom: solid $color-primary;
       }
     }

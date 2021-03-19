@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { USER_REGISTER, USER_LOGIN, USER_LOGOUT, USER_GET_INFO } from './user.types';
+import {
+  USER_REGISTER,
+  USER_LOGIN,
+  USER_LOGOUT,
+  USER_GET_INFO,
+} from './user.types';
 import { ADD_ERRORS, CLEAR_ERRORS } from '../error/error.types';
 import axiosInstance from '../../api/axiosInstance';
 
@@ -32,7 +37,7 @@ export const userRegister = ({ email, password }) => async (dispatch) => {
 
 export const userLogin = ({ email, password }) => async (dispatch) => {
   try {
-    const res = await axiosInstance.post('/api/users/login' , {
+    const res = await axiosInstance.post('/api/users/login', {
       email,
       password,
     });
@@ -68,6 +73,7 @@ export const userLogout = () => async (dispatch) => {
       token: null,
       email: null,
       role: null,
+      name: null,
     },
   });
 };
@@ -82,7 +88,7 @@ export const getUserInfo = () => async (dispatch) => {
           name: response.data.name,
           email: response.data.email,
           role: response.data.role,
-        }
+        },
       });
     }
   } catch (err) {

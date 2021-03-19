@@ -1,6 +1,17 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogout } from '../../redux/user/user.actions';
 
 const DashboardAnnouncements = ({ currentUser }) => {
+  useSelector(state => state.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    localStorage.clear();
+    dispatch(userLogout());
+  };
+
   return (
     <div className="dashboard-wrapper">
       <div className="dashboard__main">
@@ -13,6 +24,10 @@ const DashboardAnnouncements = ({ currentUser }) => {
               <i class="fas fa-user-circle"></i>
               <h2>{ currentUser.name }</h2>
               <i class="fas fa-caret-down"></i>
+              <div className="dropdown-content">
+                <Link className="a">Setări cont</Link>
+                <Link className="a" to="/" onClick={handleLogout}>Deconectare</Link>
+              </div>
             </div>
           </div>
         </div>
