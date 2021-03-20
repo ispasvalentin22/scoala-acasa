@@ -48,27 +48,30 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
     name: req.body.name,
-    // school: req.body.school ? req.body.role=='teacher' : null,
+    // school: req.body.school ? req.body.role =='teacher' : null,
   });
 
   switch (newUser.role) {
-    case 'school':
+    case 'Scoala':
       await School.create({ 
         user: newUser._id,
         name: req.body.name,
+        role: req.body.role,
       });
       break;
-    case 'teacher':
+    case 'Profesor':
       await Teacher.create({ 
         user: newUser._id,
         name: req.body.name,
-        school: req.body.school,
+        role: req.body.role,
+        // school: req.body.school,
       });
       break;
-    case 'student':
+    case 'Elev':
       await Student.create({
         user: newUser._id,
         name: req.body.name,
+        role: req.body.role,
       });
   }
   
