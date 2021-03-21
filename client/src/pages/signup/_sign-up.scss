@@ -70,3 +70,21 @@
     margin: 2rem auto;
   }
 }
+
+.react-select {
+  &-container {
+    margin: 1.5rem 0;
+  }
+
+  &__value-container {
+    font-size: 1.5rem;
+  }
+
+  &__menu-list {
+    font-size: 1.5rem;
+  }
+
+  &__option {
+    font-size: 1.5rem;
+  }
+}

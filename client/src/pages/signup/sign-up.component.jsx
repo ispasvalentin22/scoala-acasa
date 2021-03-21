@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import { CLEAR_ERRORS } from '../../redux/error/error.types';
 import { userRegister } from '../../redux/user/user.actions';
+import SingleSelect from '../../components/SingleSelect.component';
 
 const SignUp = () => {
   const user = useSelector((state) => state.user);
@@ -32,6 +34,21 @@ const SignUp = () => {
     }
   }, [errors, dispatch]);
 
+  const roles = [
+    {
+      value: 'Elev',
+      label: 'Elev',
+    },
+    {
+      value: 'Profesor',
+      label: 'Profesor',
+    },
+    {
+      value: 'Scoala',
+      label: 'Scoala',
+    }
+  ];
+
   return (
     <div className="signup__container">
       
@@ -47,7 +64,15 @@ const SignUp = () => {
         </div>
         <div className="signup__field">
           <label for="role" className="signup__label">Tipul contului</label>
-          <input className="signup__input" type="text" name="role" value={role} placeholder="ex: Elev, Profesor, Scoala" onChange={e => setRole(e.target.value)} />
+          {/* <input className="signup__input" type="text" name="role" value={role} placeholder="ex: Elev, Profesor, Scoala" onChange={e => setRole(e.target.value)} /> */}
+          <SingleSelect name="role" value={role} onChange={e => setRole(e.target.value.value)} />
+          <Select
+            className="react-select-container"
+            classNamePrefix="react-select"
+            defaultValue={roles[0]}
+            options={roles}
+            onChange={e => setRole(e.value)}
+          />
         </div>
         <div className="signup__field">
           <label for="psw" className="signup__label">Parola</label>

@@ -9,6 +9,9 @@ const schoolSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please tell us your school name!'],
   },
+  role: {
+    type: String,
+  },
 });
 
 // schoolSchema.pre(/^find/, function(next) {
