@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInfo } from '../../redux/user/user.actions';
 import { isLoggedIn } from "../../utils/isLoggedIn";
 
 import DashboardMenu from '../../components/dashboard-menu/dashboard-menu.component';
 import DashboardAnnouncements from '../../components/dashboard-announcements/dashboard-announcements.component';
+import { ReactComponent as NotConnected } from './../../assets/SVGs/cancel.svg';
 
 const Dashboard = () => {
   let currentUser = useSelector((state) => state.user);
@@ -29,7 +30,11 @@ const Dashboard = () => {
       );
     } else {
       return (
-        <h1>Trebuie să fii conectat pentru a accesa această pagină!</h1>
+        <div className="notconnected-page">
+          <NotConnected className="notconnected-logo" />
+          <h1 className="notconnected-header">Trebuie să fii conectat pentru a accesa această pagină!</h1>
+          <Link to="/login"><button className="notconnected-login">Conectează-te</button></Link>       
+        </div>
       )
     }
 }
