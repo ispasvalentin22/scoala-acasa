@@ -8,10 +8,12 @@ import {
 import { ADD_ERRORS, CLEAR_ERRORS } from '../error/error.types';
 import axiosInstance from '../../api/axiosInstance';
 
-export const userRegister = ({ email, password }) => async (dispatch) => {
+export const userRegister = ({ email, password, name, role }) => async (dispatch) => {
   try {
     const res = await axiosInstance.post('/api/users/signup', {
+      name,
       email,
+      role,
       password,
     });
     if (res) {

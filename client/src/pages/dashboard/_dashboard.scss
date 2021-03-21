@@ -1,3 +1,42 @@
 .dashboard-container {
   display: flex;
 }
+
+.notconnected {
+  &-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &-logo {
+    width: 70rem;
+    margin-top: -8rem;
+  }
+
+  &-header {
+    margin-top: -7rem;
+    font-size: 4rem;
+    background-image: linear-gradient(rgba(#2871ff, 1), rgba(#000000, 1));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &-login {
+    font-size: 2rem;
+    padding: 1.5rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    margin-top: 4rem;
+    color: white;
+    background-color: $color-primary;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: darken($color: $color-primary-dark, $amount: 0);
+      transform: translateY(-0.4rem);
+    }
+  }
+}

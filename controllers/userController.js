@@ -49,13 +49,13 @@ exports.getCurrentUser = catchAsync(async (req, res, next) => {
 
   let currentUser;
   switch (user.role) {
-    case 'school':
+    case 'Scoala':
       currentUser = await School.find({ user: req.user._id });
       break;
-    case 'teacher':
+    case 'Profesor':
       currentUser = await Teacher.find({ user: req.user._id });
       break;
-    case 'student':
+    case 'Elev':
       currentUser = await Student.find({ user: req.user._id });
     default:
       currentUser = await Student.find({ user: req.user._id });

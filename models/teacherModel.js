@@ -9,10 +9,13 @@ const teacherSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please introduce a teacher name'],
   },
+  role: {
+    type: String,
+  },
   school: {
     type: mongoose.Schema.ObjectId,
     ref: 'School',
-    required: [true, 'Please tell us your school'],
+    // required: [true, 'Please tell us your school'],
   },
   class: {
     type: mongoose.Schema.ObjectId,
