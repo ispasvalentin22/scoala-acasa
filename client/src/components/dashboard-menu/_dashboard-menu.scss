@@ -60,6 +60,10 @@
     align-items: center;
     margin: 2rem 0;
 
+    &:hover .fa-border-all, &:hover .sidemenu__homepage--h3 {
+      color: $color-primary;
+    }
+
     &--h3 {
       margin-left: 1.5rem;
       color: $color-black-light;
@@ -76,4 +80,5 @@
 
 .fa-clipboard, .fa-border-all, .fa-calendar-alt {
   font-size: 2.5rem;
+  color: $color-black-light;
 }

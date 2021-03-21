@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const DashboardMenu = ({ currentUser }) => {
   return (
@@ -13,10 +14,12 @@ const DashboardMenu = ({ currentUser }) => {
         </div>
         <div className="class-activity">
           <h3 className="class-activity-title">ACTIVITATEA LA CLASĂ</h3>
-          <div className="sidemenu__homepage">
-            <i class="fas fa-border-all"></i>
-            <h3 className="sidemenu__homepage--h3">Pagina principală</h3>
-          </div>
+          <Link to='/dashboard'>
+            <div className="sidemenu__homepage">
+              <i class="fas fa-border-all"></i>
+              <h3 className="sidemenu__homepage--h3">Pagina principală</h3>
+            </div>
+          </Link>
           <div className="sidemenu__catalogue">
             <i class="far fa-clipboard"></i>
             <h3 className="sidemenu__catalogue--title">Catalog</h3>
