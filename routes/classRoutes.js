@@ -13,7 +13,7 @@ const router = express.Router();
 router
   .route('/')
   .get(authController.protect, getAllClasses)
-  .post(authController.protect, authController.restrictTo('Profesor'), createClass);
+  .post(authController.protect, createClass); // TODO: protect and restrict to teacher role
 
 router.route('/:id').get(getClass).patch(updateClass).delete(deleteClass);
 
