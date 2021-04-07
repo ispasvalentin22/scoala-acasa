@@ -5,11 +5,11 @@ const classSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please introduce a class name']
   },
-  school: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'School',
-    required: [true, 'Class must belong to a school']
-  },
+  // school: {
+  //   type: mongoose.Schema.ObjectId,
+  //   ref: 'School',
+  //   required: [true, 'Class must belong to a school']
+  // },
   disciplines: [
     {
       type: mongoose.Schema.ObjectId,

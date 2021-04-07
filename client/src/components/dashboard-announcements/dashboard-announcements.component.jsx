@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogout } from '../../redux/user/user.actions';
-import { isLoggedIn } from '../../utils/isLoggedIn';
 
 const DashboardAnnouncements = ({ currentUser }) => {
   useSelector(state => state.user);
@@ -36,7 +35,7 @@ const DashboardAnnouncements = ({ currentUser }) => {
         <section className="announcements">
           <div className="announcements-header">
             <h2 className="announcements-header-title">Anunțuri</h2>
-            { currentUser.role == 'Profesor' ? <button className="announcements-add"><i class="fas fa-plus"></i>Adaugă anunț</button> : null }
+            { currentUser.role === 'Profesor' ? <button className="announcements-add"><i class="fas fa-plus"></i>Adaugă anunț</button> : null }
           </div>
         </section>
       </div>

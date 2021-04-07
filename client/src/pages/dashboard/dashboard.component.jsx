@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { Route, Switch, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInfo } from '../../redux/user/user.actions';
-import { isLoggedIn } from "../../utils/isLoggedIn";
+import { isLoggedIn } from '../../utils/isLoggedIn';
+import { gotClass } from '../../utils/gotClass';
 
 import DashboardMenu from '../../components/dashboard-menu/dashboard-menu.component';
 import DashboardAnnouncements from '../../components/dashboard-announcements/dashboard-announcements.component';
+import CreateClass from '../../components/CreateClass/CreateClass.component';
 import { ReactComponent as NotConnected } from './../../assets/SVGs/cancel.svg';
 
 const Dashboard = () => {
@@ -24,7 +26,8 @@ const Dashboard = () => {
         <div className="dashboard-container">
           <DashboardMenu currentUser={currentUser} />
           <Switch>
-            <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } />
+            {gotClass() ? <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } /> : <CreateClass currentUser={currentUser} /> }
+            
           </Switch>
         </div>
       );
