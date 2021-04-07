@@ -38,7 +38,6 @@
   "bugs": {
     "url": "https://github.com/ispasvalentin22/scoala-acasa/issues"
   },
-  "homepage": "https://github.com/ispasvalentin22/scoala-acasa#readme",
   "engines": {
     "node": ">=10.0.0"
   }
