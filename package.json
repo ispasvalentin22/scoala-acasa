@@ -25,11 +25,9 @@
     "start": "NODE_ENV=production node server.js",
     "start:dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
-    "build": "cd client && npm run build",
     "server": "node sever.js",
     "client": "npm run start --prefix client",
-    "heroku-postbuild": "cd client && npm install && npm run build",
-    "test": ""
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
