@@ -6,6 +6,7 @@ const setAuthHeaderValue = () => {
 };
 
 const axiosInstance = axios.create(
+  { baseURL: 'https://dry-taiga-02239.herokuapp.com' },
   {
     headers: {
       'Content-Type': 'application/json',
