@@ -26,8 +26,16 @@ mongoose
   })
   .then(() => console.log('DB connection successful!'));
 
-if (process.env.NODE_ENV === 'production') {
+if (
+  process.env.NODE_ENV === 'production' ||
+  process.env.NODE_ENV === 'staging'
+) {
   app.use(express.static(__dirname + '/client/build'));
+
+  const path = require('path');
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
 }
 
 const port = process.env.PORT || 4000;

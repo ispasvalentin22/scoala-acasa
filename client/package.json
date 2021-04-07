@@ -50,5 +50,6 @@
   },
   "devDependencies": {
     "live-server": "^1.2.1"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }
