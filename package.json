@@ -21,6 +21,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node server.js",
     "start:dev": "nodemon server.js",
     "start:prod": "NODE_ENV=production nodemon server.js",
     "test": ""
@@ -34,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/ispasvalentin22/scoala-acasa/issues"
   },
-  "homepage": "https://github.com/ispasvalentin22/scoala-acasa#readme"
+  "homepage": "https://github.com/ispasvalentin22/scoala-acasa#readme",
+  "engines": {
+    "node": ">=10.0.0"
+  }
 }
