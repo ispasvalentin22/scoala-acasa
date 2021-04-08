@@ -27,7 +27,7 @@
     "start:prod": "NODE_ENV=production nodemon server.js",
     "server": "node sever.js",
     "client": "npm run start --prefix client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build && PORT=process.env.PORT serve -s build -l PORT"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build && serve -s build"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,6 @@
     "url": "https://github.com/ispasvalentin22/scoala-acasa/issues"
   },
   "engines": {
-    "node": ">=10.0.0"
+    "node": "14.x"
   }
 }
