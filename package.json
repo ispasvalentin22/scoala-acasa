@@ -17,6 +17,7 @@
     "mongoose": "^5.10.13",
     "morgan": "^1.10.0",
     "nodemailer": "^6.4.15",
+    "path": "^0.12.7",
     "validator": "^13.1.17",
     "xss-clean": "^0.1.1"
   },
@@ -27,7 +28,7 @@
     "start:prod": "NODE_ENV=production nodemon server.js",
     "server": "node sever.js",
     "client": "npm run start --prefix client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build && serve -s build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",

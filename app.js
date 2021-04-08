@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const cors = require('cors');
+const path = require('path');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -13,6 +14,11 @@ const schoolRouter = require('./routes/schoolRoutes');
 const classRouter = require('./routes/classRoutes');
 
 const app = express();
+
+app.use(express.static(path.join(__dirname, './client/build')));
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+});
 
 // 1) GLOBAL MIDDLEWARES
 // Implement CORS
@@ -48,13 +54,6 @@ app.use(xss());
 app.use('/api/users', userRouter);
 app.use('/api/schools', schoolRouter);
 app.use('/api/classes', classRouter);
-
-app.get('/', (req, res) => {
-  res.status(200).json({
-    message: 'Hello from the server side',
-    app: 'Scoala-acasa',
-  });
-});
 
 app.post('/', (req, res) => {
   res.send('You can post to this endpoint...');
