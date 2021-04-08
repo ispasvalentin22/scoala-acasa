@@ -3,14 +3,13 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const app = require('./app');
 const express = require('express');
-const proxy = require('http-proxy-middleware');
 const path = require('path');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-// app.use(
-//   '/api',
-//   createProxyMiddleware({ target: 'https://localhost:4000', changeOrigin: true })
-// );
+app.use(
+  '/api',
+  createProxyMiddleware({ target: 'https://localhost:4000', changeOrigin: true })
+);
 
 const DB = process.env.DATABASE.replace(
   '<PASSWORD>',
