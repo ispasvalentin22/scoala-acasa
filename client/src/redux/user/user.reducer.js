@@ -3,12 +3,14 @@ import {
   USER_LOGIN,
   USER_LOGOUT,
   USER_GET_INFO,
+  USER_CREATE_CLASS,
 } from './user.types';
 
 const INITIAL_STATE = {
   name: '',
   email: '',
   role: '',
+  gotClass: '',
   token: '',
 };
 
@@ -40,8 +42,15 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         name: action.payload.name,
         role: action.payload.role,
+        class: action.payload.class,
         email: action.payload.email,
       };
+
+    // case USER_CREATE_CLASS:
+    //   return {
+    //     ...state,
+    //     gotClass: action.payload.gotClass,
+    //   };
 
     default:
       return state;

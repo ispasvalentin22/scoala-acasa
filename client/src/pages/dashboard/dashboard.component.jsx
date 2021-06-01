@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Link, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserInfo } from '../../redux/user/user.actions';
 import { isLoggedIn } from '../../utils/isLoggedIn';
@@ -25,10 +25,9 @@ const Dashboard = () => {
       return (
         <div className="dashboard-container">
           <DashboardMenu currentUser={currentUser} />
-          <Switch>
             {gotClass() ? <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } /> : <CreateClass currentUser={currentUser} /> }
             
-          </Switch>
+          {/* <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } /> */}
         </div>
       );
     } else {

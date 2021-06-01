@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userLogout } from '../../redux/user/user.actions';
+import axiosInstance from '../../api/axiosInstance';
+import Announcement from '../announcement/announcement.component';
 
 const DashboardAnnouncements = ({ currentUser }) => {
+  const [announcements, setAnnouncements] = useState('');
   useSelector(state => state.user);
   const dispatch = useDispatch();
 
@@ -11,6 +14,13 @@ const DashboardAnnouncements = ({ currentUser }) => {
     localStorage.clear();
     dispatch(userLogout());
   };
+
+  useEffect(() => {
+    const fetchData = async () => await axiosInstance.get(`/api/classes/${currentUser.class}`).then(data => setAnnouncements(data.data.data.classs.announcements));
+    fetchData();
+  }, []);
+
+  console.log(announcements);
 
   return (
     <div className="dashboard-wrapper">
@@ -36,6 +46,12 @@ const DashboardAnnouncements = ({ currentUser }) => {
           <div className="announcements-header">
             <h2 className="announcements-header-title">Anunțuri</h2>
             { currentUser.role === 'Profesor' ? <button className="announcements-add"><i class="fas fa-plus"></i>Adaugă anunț</button> : null }
+          </div>
+
+          <div className="announcements-list">
+            {announcements.map(announcement => (
+              <Announcement key={announcement.id} announcement={announcement} /> 
+            ))}
           </div>
         </section>
       </div>

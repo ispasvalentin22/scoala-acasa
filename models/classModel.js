@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const classSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'Please introduce a class name']
+    required: [true, 'Please introduce a class name'],
   },
   // school: {
   //   type: mongoose.Schema.ObjectId,
@@ -13,17 +13,24 @@ const classSchema = new mongoose.Schema({
   disciplines: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Discipline'
-    }    
+      ref: 'Discipline',
+    },
   ],
   students: [
     {
       type: mongoose.Schema.ObjectId,
-      ref: 'Student'
-    }
-  ]
+      ref: 'Student',
+    },
+  ],
 });
 
 const Class = mongoose.model('Class', classSchema);
+
+// Virtual populate
+classSchema.virtual('announcements', {
+  ref: 'Announcement',
+  foreignField: 'class',
+  localField: '_id',
+});
 
 module.exports = Class;

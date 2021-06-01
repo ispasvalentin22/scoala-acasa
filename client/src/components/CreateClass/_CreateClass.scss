@@ -1,0 +1,82 @@
+.createclass {
+  &__container {
+    display: flex;
+    width: 80vw;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: 3.5rem;
+    color: $color-primary;
+    margin-bottom: 5rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
+
+  &__input {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid silver;
+    outline: none;
+    display: block;
+
+    &:focus {
+      border-bottom: 2px solid $color-primary;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__submit {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: $color-primary;
+    margin-top: 2rem;
+
+    &:hover {
+      background-color: darken($color: $color-primary-dark, $amount: 0);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__redirect {
+    font-size: 1.3rem;
+    margin: 2rem auto;
+  }
+}
+
+.error {
+  color: red;
+  font-size: 1.5rem;
+  background: #fce4e4;
+  margin-top: 3rem;
+  padding: 2rem 3rem;
+  border: 1px solid #fcc2c3;
+}
+

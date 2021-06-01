@@ -21,6 +21,9 @@ const teacherSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'Class',
   },
+  gotClass: {
+    type: String,
+  },
 });
 
 const Teacher = mongoose.model('Teacher', teacherSchema);
