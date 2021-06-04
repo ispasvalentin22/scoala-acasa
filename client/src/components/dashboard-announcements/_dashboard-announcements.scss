@@ -1,6 +1,7 @@
 .dashboard-wrapper {
   display: flex;
   width: 100%;
+  position: relative;
 }
 
 .dashboard__main {
@@ -20,7 +21,8 @@
   justify-content: space-between;
 }
 
-.fa-bell, .fa-comments {
+.fa-bell,
+.fa-comments {
   font-size: 2.5rem;
   margin-right: 2rem;
 
@@ -37,7 +39,7 @@
 
 .currentuser-header-info > .fa-user-circle::after {
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   left: 0;
   width: 0.1rem;
@@ -68,7 +70,7 @@
   }
 
   &:hover .dropdown-content {
-    display: block;    
+    display: block;
   }
 }
 
@@ -79,7 +81,7 @@
   left: 0;
   background-color: #f9f9f9;
   min-width: 21rem;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 
   & .a {
@@ -118,7 +120,7 @@
 
     &::after {
       position: absolute;
-      content: "";
+      content: '';
       bottom: -3rem;
       left: -3rem;
       width: 108%;
@@ -128,7 +130,7 @@
 
     &-title {
       font-size: 2rem;
-    }    
+    }
   }
 
   &-add {
@@ -148,8 +150,68 @@
       outline: none;
     }
   }
+
+  &__form {
+    position: absolute;
+    right: 20rem;
+    top: 15rem;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
+
+  &__input {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid silver;
+    outline: none;
+    display: block;
+
+    &:focus {
+      border-bottom: 2px solid $color-primary;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__submit {
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: $color-primary;
+    margin-top: 2rem;
+
+    &:hover {
+      background-color: darken($color: $color-primary-dark, $amount: 0);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 .fa-plus {
   margin: 0 0.5rem;
+}
+
+.header-classname {
+  margin: -1rem 0;
+  margin-left: 3.5rem;
+  color: $color-primary-dark;
 }

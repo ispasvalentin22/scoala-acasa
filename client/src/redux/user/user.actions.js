@@ -87,7 +87,6 @@ export const userLogout = () => async (dispatch) => {
 export const getUserInfo = () => async (dispatch) => {
   try {
     const response = await axiosInstance.get('/api/users/currentuser');
-    console.log(response.data);
     if (response) {
       dispatch({
         type: USER_GET_INFO,

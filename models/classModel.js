@@ -4,6 +4,7 @@ const classSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Please introduce a class name'],
+    unique: true,
   },
   // school: {
   //   type: mongoose.Schema.ObjectId,

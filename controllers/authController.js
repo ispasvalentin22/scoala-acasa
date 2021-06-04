@@ -38,7 +38,6 @@ const createSendToken = (user, statusCode, res) => {
       user,
     },
   });
-  
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
@@ -53,14 +52,14 @@ exports.signup = catchAsync(async (req, res, next) => {
 
   switch (newUser.role) {
     case 'Scoala':
-      await School.create({ 
+      await School.create({
         user: newUser._id,
         name: req.body.name,
         role: req.body.role,
       });
       break;
     case 'Profesor':
-      await Teacher.create({ 
+      await Teacher.create({
         user: newUser._id,
         name: req.body.name,
         role: req.body.role,
@@ -73,8 +72,9 @@ exports.signup = catchAsync(async (req, res, next) => {
         name: req.body.name,
         role: req.body.role,
       });
+      break;
   }
-  
+
   createSendToken(newUser, 201, res);
 });
 
@@ -227,9 +227,11 @@ exports.restrictTo = (...roles) => {
   return (req, res, next) => {
     // roles = ['admin', 'student', etc]
     if (!roles.includes(req.user.role)) {
-      return next(new AppError('You do not have permission to perform this action', 403));
+      return next(
+        new AppError('You do not have permission to perform this action', 403)
+      );
     }
 
     next();
-  }
-}
+  };
+};

@@ -15,6 +15,9 @@ const studentSchema = new mongoose.Schema({
       ref: 'Grade',
     },
   ],
+  role: {
+    type: String,
+  },
 });
 
 const Student = mongoose.model('Student', studentSchema);

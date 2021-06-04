@@ -81,14 +81,15 @@ exports.updateClass = catchAsync(async (req, res, next) => {
 exports.addAnnouncement = catchAsync(async (req, res, next) => {
   const announcement = await Announcement.create(req.body);
 
+  const classUpdated = await Class.findByIdAndUpdate(req.params.id, {
+    $push: { announcements: announcement._id },
+  });
+
   res.status(200).json({
     status: 'success',
     data: {
       announcement,
+      classUpdated,
     },
   });
-});
-
-exports.getAllAnnouncements = catchAsync(async (req, res, next) => {
-  const announcements = Announcement.find;
 });

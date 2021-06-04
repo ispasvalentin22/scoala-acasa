@@ -1,0 +1,23 @@
+.student-add {
+  border: 1px solid rgba(195, 208, 252, 0.534);
+  border-radius: 3px;
+  padding: 0.8rem;
+  background-color: rgba(195, 208, 252, 0.534);
+  font-weight: bold;
+  color: $color-primary;
+  cursor: pointer;
+  margin-left: 4rem;
+  margin-top: -1.5rem;
+
+  &:hover {
+    color: $color-primary-dark;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.header-classname-container {
+  display: flex;
+}
