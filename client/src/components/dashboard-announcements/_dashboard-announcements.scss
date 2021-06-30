@@ -215,3 +215,12 @@
   margin-left: 3.5rem;
   color: $color-primary-dark;
 }
+
+.error {
+  color: red;
+  font-size: 1.5rem;
+  background: #fce4e4;
+  margin-top: 3rem;
+  padding: 2rem 3rem;
+  border: 1px solid #fcc2c3;
+}

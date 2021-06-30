@@ -6,6 +6,8 @@ const {
   deleteClass,
   updateClass,
   addAnnouncement,
+  addStudent,
+  addDiscipline
 } = require('../controllers/classController');
 const authController = require('../controllers/authController');
 
@@ -22,6 +24,9 @@ router.route('/:id').get(getClass).patch(updateClass).delete(deleteClass);
 router.route('/:id/announcements').post(addAnnouncement);
 
 // Students routes
-router.route('/:id/students').post();
+router.route('/:id/students').post(addStudent);
+
+// Disciplines routes
+router.route('/:id/disciplines').post(addDiscipline);
 
 module.exports = router;

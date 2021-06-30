@@ -4,6 +4,7 @@ import {
   USER_LOGOUT,
   USER_GET_INFO,
   USER_CREATE_CLASS,
+  USER_GET_CLASS,
 } from './user.types';
 import { ADD_ERRORS, CLEAR_ERRORS } from '../error/error.types';
 import axiosInstance from '../../api/axiosInstance';
@@ -133,3 +134,57 @@ export const userCreateClass =
       });
     }
   };
+
+export const userPostStudent = ({ currentUser, newStudent }) => async (dispatch) => {
+  try {
+    const response = await axiosInstance
+    .post(`/api/classes/${currentUser.class}/students`, {
+      newStudent
+    });
+
+    if (response) {
+      dispatch({
+        type: CLEAR_ERRORS,
+        payload: {
+          errors: null,
+        },
+      });
+    }
+  } catch (err) {
+    dispatch({
+      type: ADD_ERRORS,
+      payload: {
+        errors: err.response.data.message,
+      },
+    });
+  }
+};
+
+export const getUserClass = ({ currentUser }) => async (dispatch) => {
+  try {
+    const response = await axiosInstance.get(`/api/classes/${currentUser.class}`);
+    if (response) {
+
+      dispatch({
+        type: CLEAR_ERRORS,
+        payload: {
+          errors: null,
+        },
+      });
+
+      dispatch({
+        type: USER_GET_CLASS,
+        payload: {
+          currentClass: response.data.data.classs
+        },
+      });
+    }
+  } catch (error) {
+    // dispatch({
+    //   type: ADD_ERRORS,
+    //   payload: {
+    //     errors: error.response.data.message,
+    //   },
+    // });
+  }
+};

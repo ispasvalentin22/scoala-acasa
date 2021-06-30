@@ -3,7 +3,7 @@ import {
   USER_LOGIN,
   USER_LOGOUT,
   USER_GET_INFO,
-  USER_CREATE_CLASS,
+  USER_GET_CLASS,
 } from './user.types';
 
 const INITIAL_STATE = {
@@ -12,6 +12,7 @@ const INITIAL_STATE = {
   role: '',
   gotClass: '',
   token: '',
+  currentClass: ''
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -46,11 +47,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
         email: action.payload.email,
       };
 
-    // case USER_CREATE_CLASS:
-    //   return {
-    //     ...state,
-    //     gotClass: action.payload.gotClass,
-    //   };
+    case USER_GET_CLASS:
+      return {
+        ...state,
+        currentClass: action.payload.currentClass
+      };
 
     default:
       return state;

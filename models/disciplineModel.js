@@ -5,10 +5,10 @@ const disciplineSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please introduce a discipline name']
   },
-  teacher: {
+  class: {
     type: mongoose.Schema.ObjectId,
-    ref: 'Teacher',
-    required: [true, 'Discipline must belong to a teacher']
+    ref: 'Class',
+    required: true
   }
 });
 

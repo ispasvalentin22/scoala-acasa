@@ -46,12 +46,6 @@ const Navbar = () => {
         <Link className='option' to='#'>
           Despre noi
         </Link>
-        <Link className='option' to='#'>
-          Funcționalități
-        </Link>
-        <Link className='option' to='#'>
-          Contact
-        </Link>
         <div className='logged-links'>
           {renderLinks()}
         </div>

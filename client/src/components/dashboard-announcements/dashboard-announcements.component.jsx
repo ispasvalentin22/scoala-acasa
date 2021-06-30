@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { userLogout } from '../../redux/user/user.actions';
+import { userLogout, userPostStudent } from '../../redux/user/user.actions';
 import axiosInstance from '../../api/axiosInstance';
 import Announcement from '../announcement/announcement.component';
 import AddStudent from '../AddStudent/AddStudent.component';
@@ -13,7 +13,9 @@ const DashboardAnnouncements = ({ currentUser }) => {
   const [description, setDescription] = useState('');
   const [addAnnouncement, setAddAnnountcement] = useState(false);
   const [addStudent, setAddStudent] = useState(false);
+  const [newStudent, setNewStudent] = useState('');
 
+  const errors = useSelector((state) => state.errors);
   useSelector((state) => state.user);
   const dispatch = useDispatch();
 
@@ -23,10 +25,8 @@ const DashboardAnnouncements = ({ currentUser }) => {
   };
 
   const currentClass = currentUser.class;
-  console.log(currentClass);
 
   const postAnnouncements = async (e) => {
-    const currentClass = currentUser.class;
     e.preventDefault();
 
     await axiosInstance
@@ -38,6 +38,12 @@ const DashboardAnnouncements = ({ currentUser }) => {
       .then((data) => {
         setAnnouncements(data.data.data.announcement);
       });
+  };
+
+  const submitNewStudent = async (e) => {
+    e.preventDefault();
+    
+    dispatch(userPostStudent({ currentUser, newStudent }));
   };
 
   const showAddStudent = () => {
@@ -59,7 +65,11 @@ const DashboardAnnouncements = ({ currentUser }) => {
           setClassName(data.data.data.classs.name);
         });
     fetchAnnouncements();
-  }, []);
+
+    return () => {
+      errors.errors = null;
+    }
+  }, [errors, dispatch]);
 
   return (
     <div className="dashboard-wrapper">
@@ -85,9 +95,9 @@ const DashboardAnnouncements = ({ currentUser }) => {
 
         <div className="header-classname-container">
           <h1 className="header-classname"> {className} </h1>
-          <button onClick={showAddStudent} className="student-add">
+          {currentUser.role === 'Profesor' ? (<button onClick={showAddStudent} className="student-add">
             <i class="fas fa-plus"></i>Adaugă elev
-          </button>
+          </button>) : null}
         </div>
 
         <section className="announcements">
@@ -146,8 +156,8 @@ const DashboardAnnouncements = ({ currentUser }) => {
             </form>
           ) : null}
 
-          {addStudent && (
-            <form className="announcements__form">
+          {currentUser.role === 'Profesor' && addStudent && (
+            <form onSubmit={submitNewStudent} className="announcements__form">
               <div className="announcements__field">
                 <label for="name" className="announcements__label">
                   Numele elevului
@@ -156,11 +166,13 @@ const DashboardAnnouncements = ({ currentUser }) => {
                   className="announcements__input"
                   name="name"
                   placeholder="Nume"
+                  onChange={(e) => setNewStudent(e.target.value)}
                 />
               </div>
               <button type="submit" className="announcements__submit">
                 Adaugă elev
               </button>
+              { errors.errors && <h3 className="error"> { errors.errors } </h3> }
             </form>
           )}
         </section>

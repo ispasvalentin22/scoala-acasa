@@ -5,6 +5,10 @@ const studentSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: 'User',
   },
+  class: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'Class',
+  },
   name: {
     type: String,
     required: [true, 'Please tell us your name'],

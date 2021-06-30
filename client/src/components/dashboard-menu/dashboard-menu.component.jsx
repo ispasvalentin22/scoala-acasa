@@ -20,10 +20,12 @@ const DashboardMenu = ({ currentUser }) => {
               <h3 className="sidemenu__homepage--h3">Pagina principală</h3>
             </div>
           </Link>
+          <Link to='/dashboard/catalog'>
           <div className="sidemenu__catalogue">
             <i class="far fa-clipboard"></i>
             <h3 className="sidemenu__catalogue--title">Catalog</h3>
           </div>
+          </Link>
           <div className="sidemenu__schedule">
             <i class="far fa-calendar-alt"></i>
             <h3 className="sidemenu__catalogue--title">Orar</h3>
