@@ -32,6 +32,7 @@ const Catalog = ({ currentUser }) => {
       await axiosInstance
         .get(`/api/classes/${currentUser.class}`)
         .then((data) => {
+          console.log(data.data.data.classs);
           setClassName(data.data.data.classs.name);
           // setCurrentClass(data.data.data.classs);
         });

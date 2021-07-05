@@ -43,9 +43,6 @@ const Navbar = () => {
         <Logo className='logo' />
       </Link>
       <div className='options'>
-        <Link className='option' to='#'>
-          Despre noi
-        </Link>
         <div className='logged-links'>
           {renderLinks()}
         </div>

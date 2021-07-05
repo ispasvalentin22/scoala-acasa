@@ -17,12 +17,12 @@ const classSchema = new mongoose.Schema({
   //     ref: 'Discipline',
   //   },
   // ],
-  students: [
-    {
-      type: mongoose.Schema.ObjectId,
-      ref: 'Student',
-    },
-  ],
+  // students: [
+  //   {
+  //     type: mongoose.Schema.ObjectId,
+  //     ref: 'Student',
+  //   },
+  // ],
 });
 
 const Class = mongoose.model('Class', classSchema);

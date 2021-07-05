@@ -19,7 +19,7 @@ exports.getAllClasses = catchAsync(async (req, res, next) => {
 });
 
 exports.getClass = catchAsync(async (req, res, next) => {
-  const classs = await Class.findById(req.params.id).populate('announcements').populate('disciplines');
+  const classs = await Class.findById(req.params.id).populate('announcements').populate('disciplines').populate('students');
 
   if (!classs) {
     return next(new AppError('No class found with that ID', 404));
