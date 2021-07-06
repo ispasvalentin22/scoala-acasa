@@ -75,6 +75,14 @@ exports.signup = catchAsync(async (req, res, next) => {
       break;
   }
 
+  const message = `Bun venit pe platforma, ${req.body.name}!`;
+
+  await sendEmail({
+    email: newUser.email,
+    subject: 'Bun venit!',
+    message,
+  });
+
   createSendToken(newUser, 201, res);
 });
 

@@ -26,10 +26,12 @@ const DashboardMenu = ({ currentUser }) => {
             <h3 className="sidemenu__catalogue--title">Catalog</h3>
           </div>
           </Link>
+          <Link to='/dashboard/orar'>
           <div className="sidemenu__schedule">
             <i class="far fa-calendar-alt"></i>
             <h3 className="sidemenu__catalogue--title">Orar</h3>
           </div>
+          </Link>
         </div>
     </section>
   )

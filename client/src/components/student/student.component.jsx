@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Student = () => {
+const Student = ({ student }) => {
   return (
     <div className="student-container">
-      <h2 className="student-name"> {announcement.title} </h2>
-      <p className="announcement-description"> {announcement.description} </p>
+      <h2 className="student-name"> {student.name} </h2>
+      <h2 className="student-grades">0</h2>
+      <h2 className="student-absente">0</h2>
     </div>
   );
 };

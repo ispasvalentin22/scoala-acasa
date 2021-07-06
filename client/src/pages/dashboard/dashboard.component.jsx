@@ -9,6 +9,7 @@ import axiosInstance from '../../api/axiosInstance';
 import DashboardMenu from '../../components/dashboard-menu/dashboard-menu.component';
 import DashboardAnnouncements from '../../components/dashboard-announcements/dashboard-announcements.component';
 import Catalog from '../../components/catalog/catalog.component';
+import Orar from '../../components/orar/orar.component';
 import CreateClass from '../../components/CreateClass/CreateClass.component';
 import { ReactComponent as NotConnected } from './../../assets/SVGs/cancel.svg';
 
@@ -45,6 +46,11 @@ const Dashboard = () => {
               <DashboardMenu currentUser={currentUser} />
               {gotClass() ? <Catalog currentUser={currentUser} currentClass={currentClass} /> : <CreateClass currentUser={currentUser} /> }
             </Route>
+            <Route path="/dashboard/orar">
+              <DashboardMenu currentUser={currentUser} />
+              <Orar currentUser={currentUser} />
+            </Route>
+
             {/* <DashboardMenu currentUser={currentUser} />
               {gotClass() ? <Route path="/dashboard" exact component={() => <DashboardAnnouncements currentUser={currentUser} /> } /> : <CreateClass currentUser={currentUser} /> }
               <Route path="/dashboard/catalog" exact component={() => <Catalog currentUser={currentUser} /> } /> */}

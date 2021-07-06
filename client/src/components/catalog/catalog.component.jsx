@@ -61,10 +61,10 @@ const Catalog = ({ currentUser }) => {
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
       padding: '5rem 8rem',
+      zIndex: '1',
     },
     overlay: {
-      backgroundColor: '#000000',
-      opacity: '0.5',
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
     },
   };
 
@@ -187,7 +187,12 @@ const Catalog = ({ currentUser }) => {
         </div>
         <div className="catalog-content">
           <div className="students-list">
-            {/* {currentUser.currentClass.} */}
+            {currentUser.currentClass.students.map(student => (
+              <Student
+              key={student._id}
+              student={student}
+            />
+            ))}
           </div>
         </div>
       </section>
